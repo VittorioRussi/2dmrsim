@@ -64,7 +64,7 @@ public class TrainingTester {
     Supplier<Engine> engineSupplier = () -> ServiceLoader.load(Engine.class).findFirst().orElseThrow();
     // do single task
     @SuppressWarnings("unchecked") Drawer drawer = ((Function<String, Drawer>) nb.build(
-        "sim.drawer(framer = sim.staticFramer(minX = 15.0; maxX = 45.0; minY = 10.0; maxY = 25.0); actions = true)"
+        "sim.drawer(framer = sim.staticFramer(minX = 5.0; maxX = 40.0; minY = 10.0; maxY = 25.0); actions = true)"
     ))
         .apply("test");
     taskOn(nb, engineSupplier, new RealtimeViewer(30, drawer)).run();
