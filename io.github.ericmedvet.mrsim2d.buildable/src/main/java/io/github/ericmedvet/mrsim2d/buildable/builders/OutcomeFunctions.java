@@ -325,23 +325,18 @@ public class OutcomeFunctions {
       List<Point> agentPositions = subOutcome.getAgentPositions();
       List<Point> boxPositions = subOutcome.getBoxPositions();
 
-      // Componente fitness basata sulla x:
       double boxDistance = boxPositions.get(1).x() - boxPositions.get(0).x();
       double agentDistance = agentPositions.get(1).x() - agentPositions.get(0).x();
 
-      // Componente fitness basata sulla y:
       double agentFallen = 0;
       double boxFallen = 0;
 
-      // Controllo se l'agente è caduto
       if (agentPositions.get(1).y() < subOutcome.getMaxYTerrain()) {
         agentFallen = agentPositions.get(1).x() < agentPositions.get(0).x() ? -1.0 : 1.0;
       }
 
-      // Ottieni la y massima della scatola
       double boxMaxY = subOutcome.getMaxYBox();
 
-      // Controllo se la scatola è caduta
       if (boxMaxY < subOutcome.getMaxYTerrain()) {
         boxFallen = boxPositions.get(0).x() < boxPositions.get(1).x() ? -1.0 : 1.0;
       }
